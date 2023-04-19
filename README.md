@@ -38,5 +38,6 @@ and all your containers will be dropped and volumes will be removed.
 Beyond `run.sh` and `stop.sh`, we have other helper scripts:
 
 - `attach.sh`: Attach to a terminal inside the app container
+- `attach-logs.sh`: Attach logs from all containers in current terminal
 - `build.sh`: Rebuilds the images in case you changed something in the Dockerfiles
 - `run-db.sh`: Run only database specific containers
