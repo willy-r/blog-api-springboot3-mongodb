@@ -5,11 +5,10 @@ import com.example.blogapispringboot3mongodb.dto.UserDTO;
 import com.example.blogapispringboot3mongodb.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 @RestController
@@ -29,5 +28,17 @@ public class UserResource {
     public ResponseEntity<UserDTO> findById(@PathVariable String id) {
         User userObj = userService.findById(id);
         return ResponseEntity.ok().body(new UserDTO(userObj));
+    }
+
+    @PostMapping
+    public ResponseEntity<UserDTO> insert(@RequestBody UserDTO userDTO) {
+        User userObj = userService.fromDTO(userDTO);
+        userObj = userService.insert(userObj);
+        URI postUri = ServletUriComponentsBuilder
+            .fromCurrentRequest()
+            .path("/{id}")
+            .buildAndExpand(userObj.getId())
+            .toUri();
+        return ResponseEntity.created(postUri).body(new UserDTO(userObj));
     }
 }
