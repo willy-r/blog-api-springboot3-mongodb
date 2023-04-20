@@ -1,5 +1,6 @@
 package com.example.blogapispringboot3mongodb.resources;
 
+import com.example.blogapispringboot3mongodb.domain.Post;
 import com.example.blogapispringboot3mongodb.domain.User;
 import com.example.blogapispringboot3mongodb.dto.UserDTO;
 import com.example.blogapispringboot3mongodb.services.UserService;
@@ -53,5 +54,11 @@ public class UserResource {
         User userObj = userService.fromDTO(userDTO);
         userObj = userService.update(id, userObj);
         return ResponseEntity.ok().body(new UserDTO(userObj));
+    }
+
+    @GetMapping(value = "/{id}/posts")
+    public ResponseEntity<List<Post>> findPosts(@PathVariable String id) {
+        User userObj = userService.findById(id);
+        return ResponseEntity.ok().body(userObj.getPosts());
     }
 }
