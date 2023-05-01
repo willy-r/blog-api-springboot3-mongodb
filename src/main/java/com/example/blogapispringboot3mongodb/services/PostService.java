@@ -18,4 +18,8 @@ public class PostService {
         Optional<Post> postObj = postRepository.findById(id);
         return postObj.orElseThrow(() -> new ObjectNotFoundException("Object with identifier " + id + " not found."));
     }
+
+    public List<Post> findAll() {
+        return postRepository.findAll();
+    }
 }
