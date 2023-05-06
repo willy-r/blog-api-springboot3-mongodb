@@ -5,6 +5,7 @@ import com.example.blogapispringboot3mongodb.domain.User;
 import com.example.blogapispringboot3mongodb.dto.UserDTO;
 import com.example.blogapispringboot3mongodb.resources.util.URL;
 import com.example.blogapispringboot3mongodb.services.PostService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Date;
 import java.util.List;
 
+@Tag(name = "Posts", description = "Posts management API")
 @RestController
 @RequestMapping(value = "/posts")
 public class PostResource {

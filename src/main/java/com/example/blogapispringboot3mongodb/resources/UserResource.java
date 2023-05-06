@@ -4,6 +4,7 @@ import com.example.blogapispringboot3mongodb.domain.Post;
 import com.example.blogapispringboot3mongodb.domain.User;
 import com.example.blogapispringboot3mongodb.dto.UserDTO;
 import com.example.blogapispringboot3mongodb.services.UserService;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
 
+@Tag(name = "Users", description = "Users management API")
 @RestController
 @RequestMapping(value = "/users")
 public class UserResource {
