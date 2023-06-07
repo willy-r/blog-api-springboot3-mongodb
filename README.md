@@ -56,7 +56,7 @@ Beyond `run.sh` and `stop.sh`, we have other helper scripts:
 
 MongoDB's service are not exposed at any port to the host machine, so you cannot connect directly to them. Please, use
 
-- _MongoDB Database Manager_ available at [`http://localhost:8081/`](http://localhost:8081/)
+- _MongoDB Database Manager_ available at [`http://localhost:8081/`](http://localhost:8080/)
     - **User**: `root`
     - **Password**: `example`
 
